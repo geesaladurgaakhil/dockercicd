@@ -1,2 +1,2 @@
-FROM ghcr.io/actions/gha-runner-scale-set-controller
+FROM ghcr.io/actions/actions-runner:latest
 RUN apt-get update
