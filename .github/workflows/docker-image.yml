@@ -27,5 +27,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: durgaakhil0211/dockercicd:${{ github.ref_name}}
+          tags: durgaakhil0211/dockercicd:python
 
