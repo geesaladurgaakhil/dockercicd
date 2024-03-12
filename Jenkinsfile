@@ -1,9 +1,6 @@
 pipeline {
     agent any
     environment {
-      docker_registry = 'durgaakhil0211/dockercicd'
-      credentialsId = "DockerHubCreds"
-      dockerImage=''
       BRANCH_NAME = "${GIT_BRANCH.split("/")[1]}"
       }
     stages {
