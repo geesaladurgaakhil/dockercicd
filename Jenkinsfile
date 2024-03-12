@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
       BRANCH_NAME = "test"
+      app = ""
       }
     stages {
         stage('build') {
