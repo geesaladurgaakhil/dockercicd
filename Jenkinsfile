@@ -14,6 +14,10 @@ pipeline {
                 echo 'testing ${BRANCH_NAME}...'
             }
         }
+        stage('Build image') {         
+       
+            app = docker.build("durgaakhil0211/dockercicd")    
+        }
         stage('deploy') {
             steps {
                 echo 'deploying ${BRANCH_NAME}...'
