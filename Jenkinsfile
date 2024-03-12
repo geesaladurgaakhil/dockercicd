@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo 'Hello world, this is multibranch pipeline for Dev branch'
+                echo 'Hello world, this is multibranch pipeline for ${BRANCH_NAME} branch'
             }
         }
         stage('test') {
             steps {
-                echo 'testing Dev...'
+                echo 'testing ${BRANCH_NAME}...'
             }
         }
         stage('deploy') {
             steps {
-                echo 'deploying Dev...'
+                echo 'deploying ${BRANCH_NAME}...'
             }
         }
     }
