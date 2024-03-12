@@ -1,31 +1,31 @@
 pipeline {
-    agent any
-    environment {
-      BRANCH_NAME = "test"
-      app = ""
+  agent any
+  options {
+    disableConcurrentBuilds()
+    buildDiscarder(logRotator(numToKeepStr: '4'))
+  }
+  environment {
+  docker_registry = 'durgaakhil0211/dockercicd'
+  credentialsId = "DockerHubCreds"
+  dockerImage=''
+  BRANCH_NAME = "${GIT_BRANCH.split("/")[1]}"
+  }
+  stages{
+    stage("Building Docker Image"){
+      steps{
+        script{
+          dockerImage = docker.build("${docker_registry}:${BRANCH_NAME}-${BUILD_NUMBER}")
+        }
       }
-    stages {
-        stage('build') {
-            steps {
-                echo 'Hello world, this is multibranch pipeline for ${BRANCH_NAME} branch'
-            }
-        }
-        stage('test') {
-            steps {
-                echo 'testing ${BRANCH_NAME}...'
-            }
-        }
-        stage('Build image') {         
-        steps {
-            script{
-            app = docker.build("durgaakhil0211/dockercicd")    
-            }
-        }
-        }
-        stage('deploy') {
-            steps {
-                echo 'deploying ${BRANCH_NAME}...'
-            }
-        }
     }
+    stage('Pushing Image to DockerHUB') {
+      steps{
+        script {
+          withDockerRegistry(credentialsId: 'DockerHubCreds', url: '') {
+		  dockerImage.push()
+          }
+        }
+      }
+    }
+  }
 }
