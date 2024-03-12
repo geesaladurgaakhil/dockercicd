@@ -15,8 +15,9 @@ pipeline {
             }
         }
         stage('Build image') {         
-       
+        steps {
             app = docker.build("durgaakhil0211/dockercicd")    
+        }
         }
         stage('deploy') {
             steps {
