@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+env:
+  DAY_OF_WEEK: Monday
+  
 jobs:
   bash-example:
     runs-on: ubuntu-latest
@@ -12,4 +15,4 @@ jobs:
     steps:
       - name: Group of log lines
         run: |
-            echo "$Greeting Akhil"
+            echo "$Greeting Akhil. Today is $DAY_OF_WEEK"
