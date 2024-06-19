@@ -15,6 +15,6 @@ jobs:
     steps:
       - name: Group of log lines
         run: |
-            echo "$Greeting $First_Name Today is $DAY_OF_WEEK on $MONTH_NAME month"
+            echo "::add-mask::$Greeting $First_Name Today is $DAY_OF_WEEK"
         env:
           First_Name: Mona
