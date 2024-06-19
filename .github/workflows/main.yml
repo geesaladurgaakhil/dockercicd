@@ -15,4 +15,6 @@ jobs:
     steps:
       - name: Group of log lines
         run: |
-            echo "$Greeting Akhil. Today is $DAY_OF_WEEK"
+            echo "$Greeting $First_Name Today is $DAY_OF_WEEK"
+        env:
+          First_Name: Mona
