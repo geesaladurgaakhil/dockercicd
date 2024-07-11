@@ -15,7 +15,7 @@ provider "azurerm" {
 }
 
 module "env" {
-  #source     = "git::https://github.com/DigitalInnovation/terraform-mns-environment-names?ref=v0.1.0"
+  source = "git::https://github.com/geesaladurgaakhil/testingpr?ref=e0e225eb96e0018b718da52aff076aaa630f0b07"
   short_name = local.subscription_type
 }
 
