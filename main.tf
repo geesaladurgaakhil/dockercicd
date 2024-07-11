@@ -15,7 +15,7 @@ provider "azurerm" {
 }
 
 module "env" {
-  source = "git::https://github.com/geesaladurgaakhil/testingpr?ref=e0e225eb96e0018b718da52aff076aaa630f0b07"
+  source = "git::https://github.com/geesaladurgaakhil/testingpr?ref=v0.1.0"
   short_name = local.subscription_type
 }
 
